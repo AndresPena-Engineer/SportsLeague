@@ -12,10 +12,4 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Swagger\" />
-    <Folder Include="DependencyInjection\" />
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
