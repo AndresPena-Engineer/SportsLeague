@@ -10,19 +10,19 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Tests/Tests.csproj", "Tests/"]
-RUN dotnet restore "./Tests/Tests.csproj"
+COPY ["Domain/Domain.csproj", "Domain/"]
+RUN dotnet restore "./Domain/Domain.csproj"
 COPY . .
-WORKDIR "/src/Tests"
-RUN dotnet build "./Tests.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Domain"
+RUN dotnet build "./Domain.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Tests.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Domain.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Tests.dll"]
+ENTRYPOINT ["dotnet", "Domain.dll"]

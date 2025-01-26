@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Tests": {
+    "Domain": {
       "commandName": "Project"
     },
     "Container (Dockerfile)": {
