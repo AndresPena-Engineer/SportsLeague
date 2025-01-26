@@ -12,4 +12,13 @@
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Acceptance\" />
+    <Folder Include="Integration\" />
+    <Folder Include="Unit\API\" />
+    <Folder Include="Unit\Infrastructure\" />
+    <Folder Include="Unit\Application\" />
+    <Folder Include="Unit\Domain\" />
+  </ItemGroup>
+
 </Project>
