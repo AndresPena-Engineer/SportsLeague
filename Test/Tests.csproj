@@ -26,4 +26,13 @@
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Acceptance\" />
+    <Folder Include="Integration\" />
+    <Folder Include="Unit\APITests\" />
+    <Folder Include="Unit\InfrastructureTests\" />
+    <Folder Include="Unit\ApplicationTests\" />
+    <Folder Include="Unit\DomainTests\" />
+  </ItemGroup>
+
 </Project>
